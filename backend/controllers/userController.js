@@ -70,3 +70,42 @@ export const increaseClicks = catchAsyncErrors(async (req, res) => {
 
   res.status(200).json(user);
 });
+
+export const addToCart = catchAsyncErrors(async (req, res) => {
+  const user = req.user;
+  const productId = req.params.productId;
+
+  user.cart.push(productId);
+  await user.save();
+
+  res.status(200).json(user);
+});
+
+export const removeFromCart = catchAsyncErrors(async (req, res) => {
+  const userId = req.user.id;
+  const productId = req.params.productId;
+  const user = await User.findByIdAndUpdate(
+    userId,
+    {
+      $pull: {
+        cart: productId,
+      },
+    },
+    { new: true }
+  );
+  res.status(200).json(user);
+});
+
+export const deleteCart = catchAsyncErrors(async (req, res) => {
+  const user = req.user;
+  user.cart = [];
+  await user.save();
+  res.status(200).json(user);
+});
+
+export const getCart = catchAsyncErrors(async (req, res) => {
+  const user = req.user;
+  res.status(200).json({
+    cart: user.cart,
+  });
+});

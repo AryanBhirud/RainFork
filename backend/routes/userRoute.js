@@ -1,11 +1,15 @@
 import express from "express";
 import {
+    addToCart,
+    deleteCart,
     getAllUsers,
+  getCart,
   getUser,
   increaseClicks,
   loginUser,
   logoutUser,
   registerUser,
+  removeFromCart,
 } from "../controllers/userController.js";
 import { isAuthenticatedUser } from "../middlewares/auth.js";
 
@@ -17,5 +21,7 @@ router.route("/logout").get(logoutUser);
 router.route("/").get(getAllUsers);
 router.route("/:userId").get(getUser);
 router.route("/products/:productId").get(isAuthenticatedUser, increaseClicks);
+router.route("/cart/:productId").get(isAuthenticatedUser, addToCart).delete(isAuthenticatedUser, removeFromCart);
+router.route("/cart").delete(isAuthenticatedUser, deleteCart).get(isAuthenticatedUser, getCart);
 
 export default router;

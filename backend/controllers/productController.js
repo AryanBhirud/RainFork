@@ -17,3 +17,8 @@ export const getAllProducts = catchAsyncErrors(async (req, res) => {
   const products = await Product.find({});
   res.status.json(products);
 });
+
+export const getAllProductsbyCategory = catchAsyncErrors(async (req, res) => {
+    const products = await Product.find({category: {$in: [req.params.category]}});
+    res.status(200).json(products);
+})
