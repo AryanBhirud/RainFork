@@ -1,10 +1,23 @@
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
 
+const productCountSchema = new mongoose.Schema({
+    productId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product", // Reference to the Product model
+      required: true
+    },
+    count: {
+      type: Number,
+      default: 0
+    }
+  });
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: [true, "please enter username"],
+    unique: true,
   },
   email: {
     type: String,
@@ -29,16 +42,7 @@ const userSchema = new mongoose.Schema({
       ref: "Product",
     },
   ],
-  clicks: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Product",
-      count: {
-        type: Number,
-        default: 0,
-      },
-    },
-  ],
+  clicks: [productCountSchema],
 });
 
 userSchema.methods.getJWTToken = function () {

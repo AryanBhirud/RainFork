@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import UserRouter from "./routes/userRoute.js";
+import ProductRouter from "./routes/productRoute.js";
 
 mongoose.connect(`${process.env.DB_URI}`);
 
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(cookieParser());
 
 app.use("/api/v1/users", UserRouter);
+app.use("/api/v1/products", ProductRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running at PORT ${process.env.PORT}`);
