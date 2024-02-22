@@ -31,14 +31,14 @@ const userSchema = new mongoose.Schema({
   ],
   clicks: [
     {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Product",
-        count: {
-            type: Number,
-            default: 0,   
-        }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+      count: {
+        type: Number,
+        default: 0,
+      },
     },
-  ]
+  ],
 });
 
 userSchema.methods.getJWTToken = function () {
