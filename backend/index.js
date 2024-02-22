@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect("mongodb://localhost:27017/RainFork");
+mongoose.connect(`${process.env.DB_URI}`);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running at PORT ${process.env.PORT}`);
