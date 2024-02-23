@@ -51,6 +51,7 @@ const Card = ({card}) => {
       <img src={card.baseImageUrl} alt={card.productName} width="150px" height="150px" />
       <p>{card.productName.split("").slice(0, 40  ).join("")+"..."}</p>
       <p>{card.description.split("").slice(0, 50).join("")+"..."}</p>
+      <p><b>Category:</b> {card.category}</p>
       <div>
         <p>{card.price}</p>
         <button>Add to Cart</button>
