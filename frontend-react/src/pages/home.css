@@ -1,0 +1,93 @@
+.ad {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.ad img {
+    width: 100%;
+    height: 500px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.spotlight {
+    background-color: red;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: scroll;
+    scrollbar-color: transparent transparent;
+    margin-bottom: 50px;
+}
+
+.card {
+    position: relative;
+    background-color: white;
+    border: 2px solid black;
+    padding: 25px;
+    border-radius: 10px;
+    height: 400px;
+    width: 25%;
+    cursor: pointer;
+}
+
+.product-grid .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    background-color: whitesmoke;
+}
+
+.card > p:first-of-type {
+    font-weight: 1000;
+}
+
+.card div {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    bottom: 20px;
+}
+
+.card div p {
+    position: relative;
+    right: 20px;
+}
+
+.card div button {
+    position: relative;
+    left: 5px;
+    background-color: red;
+    color: white;
+}
+
+.product-grid {
+    background-color: red;
+    padding: 10px;
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.product-grid .card {
+    flex-basis: calc(100%/4);
+}
+
+.product-grid .card div {
+    width: 100%;
+}
+
+.product-grid .card div p {
+    width: 25%;
+}
+
+.product-grid .card div button {
+    width: 50%;
+}

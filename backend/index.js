@@ -10,10 +10,22 @@ import ProductRouter from "./routes/productRoute.js";
 
 mongoose.connect(`${process.env.DB_URI}`);
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || origin === 'http://localhost:5173') {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+};
+
+
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 app.use("/api/v1/users", UserRouter);
