@@ -53,7 +53,7 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 10px;
-    bottom: 20px;
+    bottom: 10px;
 }
 
 .card div p {
@@ -90,4 +90,11 @@ h1 {
 
 .product-grid .card div button {
     width: 50%;
+}
+
+.spotlight .card div button {
+    position: relative;
+    left: -10px;
+    width: 75%;
+    padding: 0;
 }

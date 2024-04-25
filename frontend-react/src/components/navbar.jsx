@@ -45,6 +45,7 @@ const Navbar = () => {
             <a onClick={logout}>Logout</a>
           )}
         </div>
+        <div className="cart-navbar" onClick={() => navigate("/cart")}>Cart</div>
       </nav>
     </>
   );

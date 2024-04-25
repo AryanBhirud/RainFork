@@ -4,6 +4,7 @@ import Navbar from './components/navbar.jsx';
 import Login from './pages/login.jsx';
 import Home from './pages/home.jsx';
 import Product from './pages/product.jsx';
+import Cart from './pages/Cart.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/login" element={<Login />}/>
           <Route path='/product/:productId' element={<Product/>}/>
+          <Route path='/cart' element={<Cart/>}/>
         </Routes>
       </Router>
     </div>
